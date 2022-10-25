@@ -1,0 +1,12 @@
+Source: nrc-dkms
+Section: misc
+Priority: optional
+Maintainer: Teledatics Inc <admin@teledatics.com>
+Build-Depends: debhelper (>= 10), dkms
+Standards-Version: 3.8.1
+
+Package: nrc-dkms
+Architecture: all
+Provides: nrc-modules (= 1.34.11)
+Depends: dkms (>= 1.95), ${misc:Depends}
+Description: Teledatics nrc7292 driver

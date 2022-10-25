@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+
+%:
+	dh $@ --with=dkms
+
+execute_before_dh_install:
+	echo "options nrc fw_name=nrc7292_cspi.bin bd_name=nrc7292_bd.dat spi_bus_num=`nrc_busno.sh` spi_cs_num=0 spi_gpio_irq=`nrc_gpiono.sh` spi_polling_interval=5 hif_speed=3000000" > /etc/modprobe.d/nrc.conf
+
+override_dh_usrlocal:
+
+override_dh_install:
+	dh_install src/* usr/src/nrc-1.34.11/
+
+override_dh_dkms:
+	dh_dkms -V $(DEB_VERSION_UPSTREAM)
+	
+override_dh_auto_configure:
+override_dh_auto_build:
+override_dh_auto_test:
+override_dh_auto_install:
+override_dh_auto_clean:
+
+override_dh_builddeb:
+	dh_builddeb -- -Zgzip

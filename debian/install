@@ -1,0 +1,6 @@
+misc/nrc.conf etc/modprobe.d
+misc/nrc_load_module.sh usr/local/bin
+misc/nrc_busno.sh usr/local/bin
+misc/nrc_gpiono.sh usr/local/bin
+misc/nrc7292_cspi.bin lib/firmware
+misc/nrc7292_bd.dat lib/firmware

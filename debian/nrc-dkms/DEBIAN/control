@@ -1,0 +1,10 @@
+Package: nrc-dkms
+Version: 1.34.11
+Architecture: all
+Maintainer: Teledatics Inc <admin@teledatics.com>
+Installed-Size: 942
+Depends: dkms (>= 2.1.0.0)
+Provides: nrc-modules (= 1.34.11)
+Section: misc
+Priority: optional
+Description: Teledatics nrc7292 driver

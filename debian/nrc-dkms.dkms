@@ -1,0 +1,10 @@
+#MAKE[0]="make -C package/host/src/nrc/ KERNEL_DIR=/usr/src/linux-headers-$(uname -r) modules"
+#CLEAN="make -C package/host/src/nrc/ KERNEL_DIR=/usr/src/linux-headers-$(uname -r) clean"
+BUILT_MODULE_NAME[0]="$PACKAGE_NAME"
+#BUILT_MODULE_LOCATION[0]=src
+PACKAGE_NAME="nrc"
+PACKAGE_VERSION="#MODULE_VERSION#"
+DEST_MODULE_LOCATION[0]=/updates/dkms
+#MODULES_CONF="options nrc fw_name=nrc7292_cspi.bin bd_name=nrc7292_bd.dat spi_bus_num=`nrc_busno.sh` spi_cs_num=0 spi_gpio_irq=`nrc_gpiono.sh`"
+REMAKE_INITRD=yes
+AUTOINSTALL=yes

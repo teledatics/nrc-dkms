@@ -1,0 +1,40 @@
+#!/bin/sh
+
+NAME=nrc
+VERSION=1.34.11
+
+set -e
+
+case "$1" in
+    remove|upgrade|deconfigure)
+      if [  "`dkms status -m $NAME`" ]; then
+         dkms remove -m $NAME -v $VERSION --all
+      fi
+    ;;
+
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+# Automatically added by dh_dkms/UNDECLARED
+DKMS_NAME=nrc
+DKMS_VERSION=1.34.11
+
+case "$1" in
+    remove|upgrade|deconfigure)
+      if [  "$(dkms status -m $DKMS_NAME -v $DKMS_VERSION)" ]; then
+         dkms remove -m $DKMS_NAME -v $DKMS_VERSION --all
+      fi
+    ;;
+esac
+# End automatically added section
+
+
+exit 0
+
+
